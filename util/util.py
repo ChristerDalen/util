@@ -197,8 +197,9 @@ def dlqdu_pi(A,B,D,Q,Rw):
     Bt = np.vstack([B,np.zeros([ny,nu])])
     Qt = Dt.T*Q
     Qt = Qt*Dt
-    P = np.matrix(scipy.linalg.solve_discrete_are(At, Bt, Qt, Rw))
-    K = np.matrix(scipy.linalg.inv(Bt.T*P*Bt+Rw)*(Bt.T*P*At))
+    P = np.matrix(la.solve_discrete_are(At, Bt, Qt, Rw))
+    K = np.matrix(la.inv(Bt.T*P*Bt+Rw)*(Bt.T*P*At))
     G = -K
     G1 = G[:,0:nx]; G2=G[:,nx:nx+ny]
     return G1, G2
+
