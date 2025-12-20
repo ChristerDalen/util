@@ -197,12 +197,12 @@ def dlqdu_pi(A,B,D,Q,Rw):
 	 Call: 
 		 [G1,G2,At,Bt,Dt]=dlqdu_pi(A,B,D,Q,R)
 	 Input:
-	 	A,B,D - discrete state space model matrices
-	 	Q - Wheigting matrix for the output y_k
-	 	R - Weighting matrix for the control deviation, Delta u_k=u_k-u_(k-1)
+		A,B,D - discrete state space model matrices
+		Q - Wheigting matrix for the output y_k
+		R - Weighting matrix for the control deviation, Delta u_k=u_k-u_(k-1)
 	 Output:
-	 	G1 and G2 - Matrices in LQ optimal controller
-	 	At, Bt, Dt  - Matrices in augmented state space model
+		G1 and G2 - Matrices in LQ optimal controller
+		At, Bt, Dt  - Matrices in augmented state space model
 	"""
     nx = np.shape(A)[0]; nu=np.shape(B)[1]; ny=np.shape(D)[0]
     Dt = np.hstack([D,np.eye(ny,ny,dtype=float)])
@@ -215,6 +215,7 @@ def dlqdu_pi(A,B,D,Q,Rw):
     G = -K
     G1 = G[:,0:nx]; G2=G[:,nx:nx+ny]
     return G1, G2
+
 
 
 
