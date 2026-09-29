@@ -1,7 +1,7 @@
 """
-	Utility Toolbox
+    Utility Toolbox
 
-	Written by Dalen Industries <00215069@protonmail.com>, June 2020
+    Written by Dalen Industries <00215069@protonmail.com>, June 2020
         C.D.
 """
 import math
@@ -11,7 +11,7 @@ import control as con
 
 def ss2cf(a, b, d):
     """
-	Call:
+    Call:
         ac, bc, dc, t = ss2cf(a,b,d)
     Purpose
     Transform a state space model (a,b,d) into observable canonical form
@@ -35,7 +35,7 @@ def ss2cf(a, b, d):
 def prbs1(N, Tmin, Tmax):
     """
     PRBS1
-	Call:
+    Call:
         u, t = prbs1(N,Tmin,Tmax)
     Purpose:
     Make a Pseudo Random Binary Signal of lenght, N, samples.
@@ -191,19 +191,19 @@ def dcgain(dsys):
     return gain
 
 def dlqdu_pi(A,B,D,Q,Rw):
-	"""
-	 dlqdu_pi Compute the LQ-optimal control feedback matrices G1 and G2 for
-	 the controller, u=u+G1*(x-x_old)+G2*(y_old-r).
-	 Call: 
-		 [G1,G2,At,Bt,Dt]=dlqdu_pi(A,B,D,Q,R)
-	 Input:
-		A,B,D - discrete state space model matrices
-		Q - Wheigting matrix for the output y_k
-		R - Weighting matrix for the control deviation, Delta u_k=u_k-u_(k-1)
-	 Output:
-		G1 and G2 - Matrices in LQ optimal controller
-		At, Bt, Dt  - Matrices in augmented state space model
-	"""
+    """
+     dlqdu_pi Compute the LQ-optimal control feedback matrices G1 and G2 for
+     the controller, u=u+G1*(x-x_old)+G2*(y_old-r).
+     Call: 
+         [G1,G2,At,Bt,Dt]=dlqdu_pi(A,B,D,Q,R)
+     Input:
+        A,B,D - discrete state space model matrices
+        Q - Wheigting matrix for the output y_k
+        R - Weighting matrix for the control deviation, Delta u_k=u_k-u_(k-1)
+     Output:
+        G1 and G2 - Matrices in LQ optimal controller
+        At, Bt, Dt  - Matrices in augmented state space model
+    """
     nx = np.shape(A)[0]; nu=np.shape(B)[1]; ny=np.shape(D)[0]
     Dt = np.hstack([D,np.eye(ny,ny,dtype=float)])
     At = np.vstack([np.hstack([A,np.zeros([nx,ny])]),Dt])
