@@ -1,1 +1,23 @@
+# What git must not track: files a tool or a run makes.
+
+# Python: bytecode, caches, virtual environments, builds and installs
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.swp
+*~
 .DS_Store
+Thumbs.db
+desktop.ini
